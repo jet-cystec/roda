@@ -1,0 +1,34 @@
+# System Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# AI/Agent Context (Uncomment if you don't want to publish agent skills)
+skills/
+skills/*
+
+
+# Archivos generados por el build pipeline
+index.min.html
+#CI_CD_ARCHITECTURE.md
+WORKFLOW_CHEATSHEET.md
+install_cicd.sh
+build_site.py
+deploy.py
+.githooks
+
+# Directorio de Backups (Excluido de Git para seguridad y ligereza)
+backups/
+backups/**
