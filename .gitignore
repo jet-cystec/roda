@@ -20,14 +20,13 @@ skills/
 skills/*
 
 
-# Archivos generados por el build pipeline
+# Archivos generados (IGNORAR)
 index.min.html
-#CI_CD_ARCHITECTURE.md
-WORKFLOW_CHEATSHEET.md
-install_cicd.sh
-build_site.py
-deploy.py
-.githooks
+backups/
+
+# Scripts de Automatización (RASTREAR)
+# Quitamos de aquí build_site.py, deploy.py, etc. para que se suban a GitHub
+
 
 # Directorio de Backups (Excluido de Git para seguridad y ligereza)
 backups/
