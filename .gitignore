@@ -1,0 +1,33 @@
+# System Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# AI/Agent Context (Uncomment if you don't want to publish agent skills)
+skills/
+skills/*
+
+
+# Archivos generados (IGNORAR)
+index.min.html
+backups/
+
+# Scripts de Automatización (RASTREAR)
+# Quitamos de aquí build_site.py, deploy.py, etc. para que se suban a GitHub
+
+
+# Directorio de Backups (Excluido de Git para seguridad y ligereza)
+backups/
+backups/**

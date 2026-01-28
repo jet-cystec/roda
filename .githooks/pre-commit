@@ -1,0 +1,18 @@
+#!/bin/bash
+# Pre-commit Hook: Ejecuta build_site.py automáticamente antes de cada commit
+# Instalación: chmod +x .githooks/pre-commit && git config core.hooksPath .githooks
+
+echo "🚀 Ejecutando Pipeline de Despliegue..."
+
+# Ejecutar script de build
+python3 build_site.py
+
+# Verificar si el build fue exitoso
+if [ $? -eq 0 ]; then
+    echo "✅ Build exitoso - agregando index.min.html al commit"
+    git add index.min.html
+    exit 0
+else
+    echo "❌ Error en el build - commit cancelado"
+    exit 1
+fi
