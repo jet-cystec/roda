@@ -33,5 +33,5 @@ backups/
 backups/**
 
 # shell de automatización CI/CD y otros
-install_cicd.sh
-WORKFLOW_CHEATSHEET.md
+#install_cicd.sh
+#WORKFLOW_CHEATSHEET.md
