@@ -71,3 +71,10 @@ He diseñado esto bajo el principio de **"Cero Fricción"**:
 3.  **La automatización** asegura que el proceso sea idéntico en tu PC y en la nube.
 
 Este nivel de automatización es el que usan equipos de ingeniería en empresas como Google o Airbnb para manejar despliegues rápidos y seguros. ⚓🚀
+
+---
+
+## 🤖 Guía para Agentes (Antigravity)
+
+Si eres un agente de IA trabajando en este proyecto, DEBES activar y seguir el skill de automatización:
+👉 [GitHub Automation Skill](file:///home/jet/cystec/roda/skills/automation/SKILL.md)
