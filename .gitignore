@@ -31,3 +31,7 @@ backups/
 # Directorio de Backups (Excluido de Git para seguridad y ligereza)
 backups/
 backups/**
+
+# shell de automatización CI/CD y otros
+install_cicd.sh
+WORKFLOW_CHEATSHEET.md
