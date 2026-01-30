@@ -87,10 +87,8 @@ class BuildPipeline:
         )
 
         # Eliminar espacios en blanco múltiples y saltos de línea
+        # Usamos un espacio simple para preservar el espaciado inline-block
         html_content = re.sub(r'\s+', ' ', html_content)
-
-        # Eliminar espacios alrededor de etiquetas
-        html_content = re.sub(r'>\s+<', '><', html_content)
 
         # Eliminar espacios al inicio y final
         html_content = html_content.strip()
@@ -99,43 +97,10 @@ class BuildPipeline:
 
     def optimize_scripts(self, html_content):
         """
-        Optimiza las etiquetas <script> añadiendo el atributo defer si no existe.
-
-        Args:
-            html_content (str): Contenido HTML
-
-        Returns:
-            str: Contenido HTML con scripts optimizados
+        Optimiza las etiquetas <script>.
+        DESACTIVADO: El uso de 'defer' estaba causando errores de inicialización
+        en librerías como Lucide y configuraciones de Tailwind.
         """
-        def add_defer(match):
-            """Función helper para añadir defer a etiquetas script."""
-            script_tag = match.group(0)
-
-            # Si ya tiene defer o async, no hacer nada
-            if 'defer' in script_tag or 'async' in script_tag:
-                return script_tag
-
-            # Si es un script inline (sin src), no añadir defer
-            if 'src=' not in script_tag:
-                return script_tag
-
-            # CRÍTICO: No añadir defer a Tailwind CDN ya que la configuración inline 
-            # depende de que el objeto 'tailwind' esté disponible inmediatamente.
-            if 'cdn.tailwindcss.com' in script_tag:
-                return script_tag
-
-            # Añadir defer antes del cierre de la etiqueta
-            script_tag = script_tag.replace('<script', '<script defer', 1)
-            return script_tag
-
-        # Buscar todas las etiquetas <script> y optimizarlas
-        html_content = re.sub(
-            r'<script[^>]*>',
-            add_defer,
-            html_content,
-            flags=re.IGNORECASE
-        )
-
         return html_content
 
     def calculate_savings(self):
