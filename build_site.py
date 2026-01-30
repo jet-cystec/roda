@@ -119,6 +119,11 @@ class BuildPipeline:
             if 'src=' not in script_tag:
                 return script_tag
 
+            # CRÍTICO: No añadir defer a Tailwind CDN ya que la configuración inline 
+            # depende de que el objeto 'tailwind' esté disponible inmediatamente.
+            if 'cdn.tailwindcss.com' in script_tag:
+                return script_tag
+
             # Añadir defer antes del cierre de la etiqueta
             script_tag = script_tag.replace('<script', '<script defer', 1)
             return script_tag
