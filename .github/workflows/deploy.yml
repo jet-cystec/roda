@@ -27,6 +27,9 @@ jobs:
       - name: Build site
         run: python build_site.py
 
+      - name: Prepare production index
+        run: cp index.min.html index.html
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
