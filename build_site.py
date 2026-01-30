@@ -69,16 +69,13 @@ class BuildPipeline:
 
     def minify_html(self, html_content):
         """
-        Minifica el contenido HTML eliminando espacios y comentarios innecesarios.
-
-        Args:
-            html_content (str): Contenido HTML original
-
-        Returns:
-            str: Contenido HTML minificado
+        Minifica el contenido HTML de forma SEGURA.
+        - Elimina comentarios HTML no críticos.
+        - Colapsa espacios horizontales múltiples.
+        - PRESERVA saltos de línea para evitar romper scripts inline (comentarios //).
+        - PRESERVA espacios entre etiquetas para evitar traslapes visuales.
         """
-        # Eliminar comentarios HTML EXCEPTO los críticos para navegación
-        # Protege: comentarios con 'id=' y etiquetas <!-- CONTENT -->
+        # 1. Eliminar comentarios HTML EXCEPTO los críticos
         html_content = re.sub(
             r'<!--(?!.*?(?:id=|CONTENT)).*?-->',
             '',
@@ -86,14 +83,19 @@ class BuildPipeline:
             flags=re.DOTALL
         )
 
-        # Eliminar espacios en blanco múltiples y saltos de línea
-        # Usamos un espacio simple para preservar el espaciado inline-block
-        html_content = re.sub(r'\s+', ' ', html_content)
-
-        # Eliminar espacios al inicio y final
-        html_content = html_content.strip()
-
-        return html_content
+        # 2. Colapsar espacios y tabs horizontales (pero mantener el carácter de nueva línea)
+        # Esto reduce el tamaño de la indentación sin unir líneas de código JS.
+        lines = []
+        for line in html_content.splitlines():
+            # Eliminar espacios al inicio y final de cada línea, pero mantener la línea
+            stripped_line = line.strip()
+            if stripped_line:
+                # Colapsar espacios internos múltiples a uno solo
+                clean_line = re.sub(r'[ \t]+', ' ', stripped_line)
+                lines.append(clean_line)
+        
+        # Unir de nuevo con un solo salto de línea
+        return "\n".join(lines)
 
     def optimize_scripts(self, html_content):
         """
