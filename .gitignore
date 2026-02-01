@@ -17,7 +17,7 @@ yarn-error.log*
 
 # AI/Agent Context (Uncomment if you don't want to publish agent skills)
 skills/
-skills/*
+kills/*
 
 
 # Archivos generados (IGNORAR)
@@ -34,4 +34,5 @@ backups/**
 
 # shell de automatización CI/CD y otros
 #install_cicd.sh
-#WORKFLOW_CHEATSHEET.md
+#WORKFLOW_CHEATSHEET.mdnode_modules/
+node_modules/

@@ -13,39 +13,33 @@
     <!-- iOS/Apple Support -->
     <link rel="apple-touch-icon" href="favicon.png">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS (Local) -->
+    <link rel="stylesheet" href="assets/css/tailwind-compiled.css">
 
-    <!-- Cystec Branding: Custom Green Palette -->
+    <!-- Cystec Branding: Custom Green Palette (Included in compiled CSS) -->
+
+    <!-- Lucide Icons (Local) -->
+    <script src="assets/js/lucide.min.js"></script>
+
+    <!-- Defensive Icon Initialization -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        green: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            200: '#bbf7d0',
-                            300: '#86efac',
-                            400: '#4ade80',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            800: '#166534',
-                            900: '#14532d',
-                            950: '#052e16',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        document.addEventListener("DOMContentLoaded", function () {
+            // --- LAYER 1: Isolated Icon Initialization ---
+            (function initializeIcons() {
+                try {
+                    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                        lucide.createIcons();
+                        console.log('✅ Icons initialized locally');
+                    } else {
+                        console.warn('⚠️ Icon library not loaded, continuing without icons');
                     }
+                } catch (error) {
+                    console.error('❌ Icon initialization failed:', error);
+                    // Site CONTINUES functioning
                 }
-            }
-        }
+            })();
+        });
     </script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         /* Cystec Branding: Animations */
@@ -175,7 +169,7 @@
 
             <!-- Noise Texture -->
             <div class="absolute inset-0 opacity-10 mix-blend-overlay"
-                style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+                style="background-image: url('assets/img/noise-texture.svg');"></div>
         </div>
 
         <!-- Content -->
