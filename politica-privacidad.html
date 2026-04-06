@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad | Cystec Global</title>
+    <meta name="description" content="Política de privacidad y resguardo de la información de Cystec Global.">
+
+    <!-- SEO Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://flow.cystec.global/politica-privacidad.html">
+
+    <!-- Open Graph (Social Media) -->
+    <meta property="og:locale" content="es_CL">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Política de Privacidad | Cystec Global">
+    <meta property="og:description" content="Política de privacidad y resguardo de la información de Cystec Global.">
+    <meta property="og:url" content="https://flow.cystec.global/politica-privacidad.html">
+    <meta property="og:site_name" content="Cystec Global">
+    <meta property="og:image" content="https://flow.cystec.global/logotipo.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Política de Privacidad | Cystec Global">
+    <meta name="twitter:description" content="Política de privacidad y resguardo de la información de Cystec Global.">
+    <meta name="twitter:image" content="https://flow.cystec.global/logotipo.webp">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="author" content="Cystec Global">
+    <meta name="theme-color" content="#166534">
+    <link rel="alternate" hreflang="es" href="https://flow.cystec.global/politica-privacidad.html">
+
+    <!-- Modern Favicon -->
+    <link rel="icon" type="image/webp" href="favicon.webp">
+    <!-- iOS/Apple Support -->
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <!-- Tailwind CSS (Local) -->
+    <link rel="stylesheet" href="assets/css/tailwind-compiled.css">
+
+    <!-- Lucide Icons (Local) -->
+    <script src="assets/js/lucide.min.js"></script>
+
+    <!-- Defensive Icon Initialization -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            (function initializeIcons() {
+                try {
+                    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                        lucide.createIcons();
+                    }
+                } catch (error) {
+                    console.error('❌ Icon initialization failed:', error);
+                }
+            })();
+        });
+    </script>
+
+    <style>
+        /* Cystec Branding: Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .filter-white {
+            filter: brightness(0) invert(1);
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #166534;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #14532d;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 antialiased selection:bg-green-900 selection:text-white bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- === NAVBAR === -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-3 bg-white shadow-md">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 group">
+                <img id="navbar-logo" src="logotipo.webp" alt="Cystec Logo"
+                    class="h-10 w-auto object-contain transition-all duration-300">
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html#inicio"
+                    class="nav-link text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">Inicio</a>
+                <a href="index.html#demo"
+                    class="nav-link text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">Demo</a>
+                <a href="index.html#beneficios"
+                    class="nav-link text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">Beneficios</a>
+                <a href="index.html#implementacion"
+                    class="nav-link text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">Implementación</a>
+                <a href="index.html#contacto" id="cta-button"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-md transform hover:-translate-y-0.5 bg-green-900 text-white hover:bg-green-800 flex items-center gap-2">
+                    Solicitar Demo
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden focus:outline-none text-gray-800 p-2">
+                <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 flex flex-col p-6 space-y-4 animate-fadeIn">
+            <a href="index.html#inicio"
+                class="mobile-link text-gray-800 font-medium py-2 hover:text-green-700 border-b border-gray-50">Inicio</a>
+            <a href="index.html#demo"
+                class="mobile-link text-gray-800 font-medium py-2 hover:text-green-700 border-b border-gray-50">Demo</a>
+            <a href="index.html#beneficios"
+                class="mobile-link text-gray-800 font-medium py-2 hover:text-green-700 border-b border-gray-50">Beneficios</a>
+            <a href="index.html#implementacion"
+                class="mobile-link text-gray-800 font-medium py-2 hover:text-green-700 border-b border-gray-50">Implementación</a>
+            <a href="index.html#contacto"
+                class="mobile-link w-full text-center bg-green-900 text-white py-3 rounded-lg font-semibold mt-4 hover:bg-green-800 transition-colors">
+                Solicitar Demo
+            </a>
+        </div>
+    </nav>
+
+    <!-- === HERO MÍNIMO === -->
+    <header class="relative pt-32 pb-16 bg-green-900 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Noise Texture -->
+            <div class="absolute inset-0 opacity-10 mix-blend-overlay"
+                style="background-image: url('assets/img/noise-texture.svg');"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">Política de Privacidad</h1>
+            <p class="text-green-200 text-lg max-w-2xl mx-auto">Nuestro compromiso con la seguridad y el resguardo de la información.</p>
+        </div>
+    </header>
+
+    <!-- === CONTENIDO === -->
+    <main class="flex-grow py-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100">
+                
+                <div class="mb-10 text-gray-500 text-sm">
+                    <strong>Última actualización:</strong> Noviembre 2026
+                </div>
+
+                <div class="prose prose-green max-w-none text-gray-700 space-y-8">
+                    <p class="text-lg mb-8 text-gray-600">
+                        En <strong class="text-gray-900">Cystec Global</strong>, el resguardo de la información y la confianza de nuestros usuarios son pilares fundamentales para impulsar la evolución digital sostenible. Esta política detalla cómo gestionamos los datos de quienes interactúan con nuestras plataformas y formularios digitales.
+                    </p>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-green-900 flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-sm">1</span>
+                            Compromiso de Confidencialidad y Propósito
+                        </h2>
+                        <p>
+                            Nuestro objetivo primordial es asegurar que la información recopilada a través de nuestros canales oficiales permanezca bajo estrictos estándares de seguridad y reserva. Los datos suministrados por clientes, proveedores o visitantes serán utilizados exclusivamente para los fines específicos autorizados mediante su consentimiento expreso.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-green-900 flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-sm">2</span>
+                            Alcance y Actualización
+                        </h2>
+                        <p>
+                            Cystec Global se reserva la facultad de modificar estas políticas para alinearlas con cambios legislativos o nuevas exigencias de seguridad de la industria. Es responsabilidad del usuario revisar periódicamente este documento para estar al tanto de cualquier actualización en la protección de sus activos informáticos.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-green-900 flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-sm">3</span>
+                            Naturaleza de los Datos Recopilados
+                        </h2>
+                        <p class="mb-4">
+                            Declaramos que no solicitamos datos de alta sensibilidad. Nuestra captura de información se enfoca en parámetros de contactabilidad y datos necesarios para la gestión de servicios tecnológicos, tales como:
+                        </p>
+                        <ul class="list-none space-y-3 ml-2">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
+                                <span>Consultas para diagnósticos de madurez digital o auditorías.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
+                                <span>Solicitudes de cotización para desarrollo de aplicaciones (No-Code/Low-Code) o automatización.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
+                                <span>Inscripciones a webinars, capacitaciones o programas de adopción tecnológica.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
+                                <span>Encuestas para medir la satisfacción y el NPS interno de nuestras soluciones.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-green-900 flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-sm">4</span>
+                            Uso de Cookies y Análisis de Tráfico
+                        </h2>
+                        <p>
+                            Nuestro sitio web utiliza cookies y tecnologías de seguimiento para mejorar la experiencia de navegación y analizar el tráfico de forma agregada. Estas herramientas nos permiten entender cómo interactúan los usuarios con nuestros contenidos, optimizar el rendimiento del portal y ofrecer una experiencia más personalizada. El usuario puede gestionar sus preferencias, aceptando o rechazando el uso de estas cookies a través de la configuración de su navegador.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-green-900 flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-sm">5</span>
+                            Uso y Resguardo de la Información
+                        </h2>
+                        <p class="mb-3">
+                            El tratamiento de los datos se limitará estrictamente al propósito por el cual fueron requeridos. En ningún caso Cystec Global transferirá o proveerá esta información a terceros sin autorización previa.
+                        </p>
+                        <p>
+                            Para garantizar la integridad, los datos se almacenan en entornos de nube protegida que cumplen con estándares internacionales de ciberseguridad, evitando fugas o accesos no autorizados. Esto es vital en procesos críticos como la migración de servicios cloud o la gestión documental.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-green-900 flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-sm">6</span>
+                            Derechos del Usuario
+                        </h2>
+                        <p>
+                            Cualquier persona que haya entregado sus datos tiene el derecho de solicitar la eliminación total de sus registros de nuestras bases de datos. Cystec Global procesará estos requerimientos de forma ágil para garantizar la soberanía de la información del usuario.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-green-900 flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-sm">7</span>
+                            Carácter Informativo
+                        </h2>
+                        <p>
+                            El presente documento tiene un carácter estrictamente informativo sobre nuestras prácticas de privacidad y no constituye, por sí solo, una obligación contractual de servicios para Cystec Global.
+                        </p>
+                    </section>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-100 text-center">
+                    <a href="index.html" class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 font-medium rounded-lg transition-colors">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        Volver al inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- === FOOTER === -->
+    <footer class="bg-gray-50 border-t border-gray-200 pt-16 pb-8 mt-auto">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <img src="logotipo.webp" alt="Cystec Global" class="h-8 w-auto mb-4 filter brightness-0 opacity-80">
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        Consultorías y soluciones tecnológicas enfocadas en la resiliencia y la transformación digital.
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-gray-900 mb-4">Soluciones</h5>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="index.html#" class="hover:text-green-700 transition-colors">flow_cys</a></li>
+                        <li><a href="index.html#" class="hover:text-green-700 transition-colors">Google Workspace</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-gray-900 mb-4">Empresa</h5>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="index.html#" class="hover:text-green-700 transition-colors">Nosotros</a></li>
+                        <li><a href="index.html#contacto" class="hover:text-green-700 transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-gray-900 mb-4">Legal</h5>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>
+                            <a href="politica-privacidad.html" class="hover:text-green-700 transition-colors">
+                                Política de Privacidad
+                            </a>
+                        </li>
+                        <li>
+                            <span class="text-gray-400 cursor-not-allowed select-none" title="Próximamente disponible">
+                                Términos de Servicio
+                                <span class="ml-1 text-xs font-medium bg-gray-200 text-gray-500 px-1.5 py-0.5 rounded">
+                                    Próximamente
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <p>&copy; <span id="year"></span> Cystec Global. Todos los derechos reservados.</p>
+                <div class="flex items-center gap-2 mt-4 md:mt-0">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    <span>Secure Cloud Architecture</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- === JAVASCRIPT === -->
+    <script>
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if(mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+
+</html>
