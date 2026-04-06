@@ -1,0 +1,94 @@
+name: 🚀 Build and Deploy
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v3
+      
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: 🔨 Run Build Pipeline
+      run: python3 build_site.py
+      
+    - name: 📊 Upload Minified HTML
+      uses: actions/upload-artifact@v4
+      with:
+        name: production-build
+        path: index.min.html
+        
+    - name: 📈 Upload Metrics
+      run: |
+        echo "## 📊 Build Metrics" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Build completed successfully" >> $GITHUB_STEP_SUMMARY
+        echo "- 📦 Artifact: index.min.html" >> $GITHUB_STEP_SUMMARY
+        
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v3
+      
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: 🔨 Build Site
+      run: python3 build_site.py
+      
+    - name: 📦 Prepare Production Files
+      run: |
+        echo "📋 Preparing production files..."
+        cp index.min.html index.html
+        echo "✅ Copied index.min.html → index.html (optimized version)"
+        ls -lh index.html index.min.html
+      
+    # Deploy automático a GitHub Pages con versión minificada
+    
+    - name: 🚀 Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        publish_branch: gh-pages
+        keep_files: false
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        commit_message: 'Deploy minified site'
+    
+    # Opción 2: Deploy a Netlify
+    # - name: 🚀 Deploy to Netlify
+    #   uses: nwtgck/actions-netlify@v2
+    #   with:
+    #     publish-dir: './index.min.html'
+    #     production-deploy: true
+    #   env:
+    #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+    #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+    
+    # Opción 3: Deploy por FTP
+    # - name: 🚀 FTP Deploy
+    #   uses: SamKirkland/FTP-Deploy-Action@4.3.0
+    #   with:
+    #     server: ${{ secrets.FTP_SERVER }}
+    #     username: ${{ secrets.FTP_USERNAME }}
+    #     password: ${{ secrets.FTP_PASSWORD }}
+    #     local-dir: ./
